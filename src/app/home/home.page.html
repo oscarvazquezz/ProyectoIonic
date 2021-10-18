@@ -1,0 +1,50 @@
+<ion-content style="text-align: center !important;">
+  <form class="example-form" #formUser="ngForm">
+    <br><br>
+    <ion-row>
+     <ion-col>
+
+       <mat-form-field class="example-full-width" >
+        <mat-label>Usuario</mat-label>
+        <input type="text" #usuarioCount matInput name="usuario" [(ngModel)]="user.usuario" 
+        placeholder="Usuario" (keyup)="onKeyUp($event)"
+        maxlength="30"
+        minlength="8"
+        onkeypress="if(this.value.length > this.maxLength && this.value.length < this.minLength ) return false;"
+        required>
+        <mat-hint align="end">{{usuarioCount.value.length}} /30</mat-hint>
+      </mat-form-field>
+
+      <br><br>
+      <mat-form-field class="example-full-width" >
+        <mat-label>Contraseña</mat-label>
+        <input type="password" #contraCount matInput name="contrasena" [(ngModel)]="user.contrasena" 
+        maxlength="20"
+        minlength="8"
+        placeholder="Contraseña" (keyup)="onKeyPassword($event)"
+        onkeypress="if(this.value.length==20) return false;"
+        required>
+        <mat-hint align="end">{{contraCount.value.length}} /20</mat-hint>
+      </mat-form-field>
+      
+      <br><br>
+      <ion-button (click)="onSubmit(formUser)">Loguarse</ion-button> 
+      <br>
+      <ion-button routerLink="/registro" >Registro</ion-button>
+      <br><br>
+
+      <ion-text>
+        <ion-label>
+           ¿Has olvidado tu contraseña?   
+        </ion-label>
+        <ion-label><br>
+          No hay problema <a href="/recuperarCuenta">haz click aqui</a>
+          para recuperarla
+        </ion-label>
+      </ion-text>
+
+     </ion-col>
+    </ion-row>
+  
+  </form>
+</ion-content>
