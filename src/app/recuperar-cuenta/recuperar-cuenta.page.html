@@ -11,11 +11,13 @@
 </ion-header>
 
 <ion-content style="text-align: center !important;">
+ <ion-card>
   <form class="example-form" #formUser="ngForm">
-    <br><br>
     <ion-row>
       <ion-col>
-        
+        <ion-text>
+          <h1 class="texto">Recuperar Cuenta</h1>
+         </ion-text>
         <mat-form-field class="example-full-width" >
           <mat-label>Correo Electronico</mat-label>
           <input type="email" #emailCount matInput name="email" placeholder="Correo Electronico"
@@ -23,12 +25,14 @@
           (keyup)="onKeyEmail($event)"
           required>
           <mat-hint align="end">{{emailCount.value.length}}</mat-hint>
+          <mat-hint style="color: red;font-size: 12px;">{{alertaContra}}</mat-hint>
         </mat-form-field>
-
         <br><br>
-        <ion-button (click)="guardar(formUser)">Guardar</ion-button>
+        <ion-button (click)="guardar(formUser)" [disabled]="user.verificacion==false" >Guardar</ion-button>
+        <h1>{{verificacion}}</h1>
 
       </ion-col>
     </ion-row>
   </form>
+ </ion-card>
 </ion-content>

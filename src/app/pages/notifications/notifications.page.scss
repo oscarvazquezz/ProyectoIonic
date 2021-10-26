@@ -1,0 +1,33 @@
+ion-content,ion-toolbar,ion-tab-bar,
+ion-header,ion-item{
+    --background:white;
+}
+
+ion-title,h1{
+    color:black;
+}
+
+h1{
+    margin: 2px auto 0px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+ion-list{
+    background:white;
+    margin: 5px auto 0px;
+    margin-left: -2px;
+    width:95%;
+}
+
+ion-card{
+    --background:white;
+    width:100%;
+    margin-left: 20px;
+    border:2px solid black;
+}
+
+ion-searchbar{
+    margin: 10px auto 0px;
+    width:95%;
+}

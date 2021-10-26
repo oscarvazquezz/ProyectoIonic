@@ -6,3 +6,21 @@ ion-content{
 mat-form-field,ion-label{
   color: black;
 }
+
+ion-card{
+  margin: 40px auto 0;
+  border: 3px solid #000000;
+  --background:white;
+  width: 300px;
+}
+
+ion-avatar{
+  width: 200px;
+  height: 200px;
+  margin: -30px auto 0;
+}
+
+.alerta{
+  text-align: 12px;
+  color: red;
+}

@@ -14,8 +14,17 @@ export class RegistrarPage implements OnInit {
     usuario: '',
     email : '',
     contrasena: '',
-    contrasenaVerif : ''
+    contrasenaVerif : '',
+    verificacionEmail:false,
+    verificacionUsuario:false,
+    verificacionContra:false,
+    verificacionContraVefi:false,
   }
+
+  alertaUsuario="";
+  alertaContra="";
+  alertaPassword="";
+  alertaPasswordVeri="";
 
   ngOnInit() {
   }
@@ -23,18 +32,37 @@ export class RegistrarPage implements OnInit {
   onKeyContra(event: any){
     let newValue = event.target.value;
     console.log(newValue);
-    let regExp = new RegExp('^[A-Za-z0-9@,._*-]+$');
+    let regExp = new RegExp("^[A-Za-z0-9-@.#-$%&'*_]*$");
+    new RegExp("^[A-Za-z0-9]*$");
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
+    }
+
+    let email = new RegExp("[a-zA-Z0-9.#$%&'*_-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
+    if(!email.test(this.user.email)){
+      this.alertaContra = "invalido";
+      this.user.verificacionEmail =false;
+    }else{
+      this.alertaContra = "valido";
+      this.user.verificacionEmail = true;
     }
   }
 
   onKeyUp(event: any){
     let newValue = event.target.value;
     console.log(newValue);
-    let regExp = new RegExp('^[A-Za-z0-9? ]+$');
+    let regExp = new RegExp("^[A-Za-z0-9]*$");
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
+    }
+
+    let usuarios = new RegExp("^[A-Za-z0-9]*$");
+    if(!usuarios.test(this.user.usuario)){
+      this.alertaUsuario = "invalido";
+      this.user.verificacionUsuario = false;
+    }else{
+      this.alertaUsuario = "valido";
+      this.user.verificacionUsuario = true;
     }
   }
 
@@ -42,15 +70,45 @@ export class RegistrarPage implements OnInit {
   onKeyPassword(event: any){
     let newValue = event.target.value;
     console.log(newValue);
-    let regExp = new RegExp('^[A-Za-z0-9-*#&$%]+$');
+    
+    let regExp = new RegExp('^[A-Za-z0-9*#&$%]*$');
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
+    }
+
+    let password = new RegExp("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[*#&$%])");
+    if(!password.test(this.user.contrasena)){
+      this.alertaPassword = "invalido";
+      this.user.verificacionContra = false;
+    }else{
+      this.alertaPassword = "valido";
+      this.user.verificacionContra = true;
+    }
+  }
+
+  onKeyPasswordVeri(event: any){
+    let newValue = event.target.value;
+    console.log(newValue);
+    
+    let regExp = new RegExp('^[A-Za-z0-9*#&$%]*$');
+    if(!regExp.test(newValue)){
+      event.target.value = newValue.slice(0, -1);
+    }
+
+    let password = new RegExp("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[*#&$%])");
+    if(!password.test(this.user.contrasenaVerif)){
+      this.alertaPasswordVeri = "invalido";
+      this.user.verificacionContraVefi = false;
+    }else{
+      this.alertaPasswordVeri = "valido";
+      this.user.verificacionContraVefi = true;
     }
   }
 
 
   async guardar(_form: NgForm){
     if(this.user.contrasena == this.user.contrasenaVerif){
+      alert("Ya se registro ese usuario")
       console.log(this.user)
     }else{
       alert("las contraseñas no concuerda")

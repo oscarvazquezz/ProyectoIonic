@@ -1,0 +1,18 @@
+ion-content,ion-toolbar,ion-tab-bar,ion-header{
+    --background:white;
+}
+
+ion-title,h1{
+    color:black;
+}
+
+ion-card{
+    --background:white;
+    width:300px;
+    margin: 30px auto 0;
+    border: 2px solid black;
+}
+
+ion-button{
+    --background:rgba(28, 101, 14, 0.802);
+}

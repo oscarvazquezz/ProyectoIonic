@@ -1,0 +1,30 @@
+ion-content,ion-toolbar,ion-tab-bar,ion-header{
+    --background:white;
+}
+
+ion-title,h1{
+    color:black;
+}
+
+ion-slides{
+    height:300px;
+    margin: 20px auto 0;
+}
+
+ion-card{
+    background-color: slategray !important;
+    width: 93%;
+    margin: 20px auto 0;
+}
+
+
+ion-button{
+    --background:rgb(117, 6, 25);
+    margin: 20px auto 0;
+    width: 93%;
+}
+
+img{
+    height: 300px;
+    margin-top:0px;
+}

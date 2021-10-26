@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,41 +9,63 @@ import { NgForm } from '@angular/forms';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private router:Router) {}
 
   user = {
     usuario: '',
-    contrasena: ''
+    contrasena: '',
+    verificacionUsuario : false,
+    verificacionContra : false,
   }
 
+  alertaContra="";
+  alertaPassword="";
 
   onKeyUp(event: any){
     let newValue = event.target.value;
     console.log(newValue);
-    let regExp = new RegExp('^[A-Za-z0-9? ]+$');
+    let regExp = new RegExp("^[A-Za-z0-9]*$");
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
     }
-  }
 
+    let email = new RegExp("^[A-Za-z0-9]*$");
+    if(!email.test(this.user.usuario)){
+      this.alertaContra = "invalido";
+      this.user.verificacionUsuario = false;
+    }else{
+      this.alertaContra = "valido";
+      this.user.verificacionUsuario = true;
+    }
+
+  }
 
   onKeyPassword(event: any){
     let newValue = event.target.value;
     console.log(newValue);
-    let regExp = new RegExp('^[A-Za-z0-9-*#&$%]+$');
+    
+    let regExp = new RegExp('^[A-Za-z0-9*#&$%]*$');
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
+    }
+
+    let password = new RegExp("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[*#&$%])");
+    if(!password.test(this.user.contrasena)){
+      this.alertaPassword = "invalido";
+      this.user.verificacionContra = false;
+    }else{
+      this.alertaPassword = "valido";
+      this.user.verificacionContra = true;
     }
   }
 
 
   async onSubmit(_form: NgForm) {
-    console.log(this.user);
-    alert(this.user.usuario + ' : ' + this.user.contrasena)
-    let regExp = new RegExp('^[A-Za-z0-9-*#&$%]+$');
-    console.log(regExp.test(this.user.contrasena))
-    if(!regExp.test(this.user.contrasena)){
-      console.log("si cumple")
+    if(this.user.usuario =="" && this.user.contrasena==""){
+      alert("Por favor lleva los campos que te falta")
+    }else{
+      alert(this.user.usuario + ' : ' + this.user.contrasena);
+      this.router.navigate(['/tabs/carousel']);
     }
 
   }

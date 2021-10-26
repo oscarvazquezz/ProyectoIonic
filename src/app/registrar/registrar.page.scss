@@ -4,5 +4,18 @@ ion-content,ion-header,ion-toolbar{
 
 mat-form-field,ion-label{
     color: black;
-  }
+}
+
+ion-card{
+    margin: 40px auto 0;
+    border: 3px solid #000000;
+    --background:white;
+    width: 300px;
+}
+
+.texto{
+    color: black;
+    padding: 8px;
+    text-align: center;
+}
   
