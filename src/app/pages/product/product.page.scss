@@ -19,7 +19,7 @@ ion-card{
 }
 
 
-ion-button{
+.lsB{
     --background:rgb(117, 6, 25);
     margin: 20px auto 0;
     width: 93%;
@@ -35,4 +35,9 @@ mat-form-field,ion-label{
     color: black;
     margin: 20px auto 0;
     width: 93%;
+}
+
+
+.ls{
+    --background:#077dc6;
 }
