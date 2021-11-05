@@ -40,7 +40,7 @@
          
            <mat-form-field class="example-full-width" >
              <mat-label>Correo Electronico</mat-label>
-             <input matInput #emailCount placeholder="Correo Electronico" type="email"
+             <input matInput #emailCount placeholder="Correo Electronico" type="text"
              [(ngModel)]="user.email" (keyup)="onKeyEmail($event)" name="email"
              required>
              <mat-hint align="end">{{emailCount.value.length}}</mat-hint>
@@ -51,17 +51,18 @@
              <mat-label>Telefono</mat-label>
              <input matInput #telefonoCount placeholder="Telefono" type="text"
              [(ngModel)]="user.telefono" (keyup)="onKeyTelefono($event)" name="Telefono"
+             onkeypress="if(this.value.length==10) return false;"
               required>
-              <mat-hint align="end">{{telefonoCount.value.length}}</mat-hint>
+              <mat-hint align="end">{{telefonoCount.value.length}}/10</mat-hint>
               <mat-hint style="color: red;font-size: 12px;">{{alertaTelefono}}</mat-hint>
            </mat-form-field> 
            <br><br>
 
            <ion-button  (click)="guardar(formUser)"  
-          [disabled]="user.verificacionEmail==false ||user.verificacionUsuario==false || user.verificacionPaterno == false 
-                     || user.verificacionMaterno==false  || user.verificacionTelefono==false">
-            Guardar
-          </ion-button>
+          [disabled]="user.telefono.length<10 || user.verificacionEmail==false ||user.verificacionUsuario==false || user.verificacionPaterno == false 
+                     ||user.paterno.length<4 || user.materno.length<4 ||user.usuario.length<2 || user.verificacionMaterno==false  || user.verificacionTelefono==false">
+            Aceptar
+          </ion-button><br><br>
  
          </ion-col>
       </ion-row>

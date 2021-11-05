@@ -20,7 +20,7 @@
          </ion-text>
         <mat-form-field class="example-full-width" >
           <mat-label>Correo Electronico</mat-label>
-          <input type="email" #emailCount matInput name="email" placeholder="Correo Electronico"
+          <input type="text" #emailCount matInput name="email" placeholder="Correo Electronico"
           [(ngModel)]="user.email" 
           (keyup)="onKeyEmail($event)"
           required>
@@ -28,7 +28,7 @@
           <mat-hint style="color: red;font-size: 12px;">{{alertaContra}}</mat-hint>
         </mat-form-field>
         <br><br>
-        <ion-button (click)="guardar(formUser)" [disabled]="user.verificacion==false" >Guardar</ion-button>
+        <ion-button (click)="guardar(formUser)" [disabled]="user.verificacion==false" >Aceptar</ion-button>
         <h1>{{verificacion}}</h1>
 
       </ion-col>

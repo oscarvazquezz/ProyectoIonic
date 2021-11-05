@@ -27,8 +27,14 @@ export class HomePage {
     let regExp = new RegExp("^[A-Za-z0-9]*$");
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
+      this.user.usuario = event.target.value;
+      this.verificacionUsuario();
+    }else{
+      this.verificacionUsuario();
     }
+  }
 
+  verificacionUsuario(){
     let email = new RegExp("^[A-Za-z0-9]*$");
     if(!email.test(this.user.usuario)){
       this.alertaContra = "invalido";
@@ -37,7 +43,6 @@ export class HomePage {
       this.alertaContra = "valido";
       this.user.verificacionUsuario = true;
     }
-
   }
 
   onKeyPassword(event: any){
@@ -47,8 +52,14 @@ export class HomePage {
     let regExp = new RegExp('^[A-Za-z0-9*#&$%]*$');
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
+      this.user.contrasena = event.target.value;
+      this.verificacionPasswor();
+    }else{
+      this.verificacionPasswor();
     }
+  }
 
+  verificacionPasswor(){
     let password = new RegExp("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[*#&$%])");
     if(!password.test(this.user.contrasena)){
       this.alertaPassword = "invalido";

@@ -24,13 +24,19 @@ export class RecuperarCuentaPage implements OnInit {
   onKeyEmail(event: any){
     let newValue = event.target.value;
     console.log(newValue);
-    let regExp = new RegExp("^[A-Za-z0-9-@.#-$%&'*_]*$");
-    new RegExp("^[A-Za-z0-9]*$");
+    let regExp = new RegExp("^[A-Za-z0-9@.'_-]*$");
+    //new RegExp("^[A-Za-z0-9]*$");
     if(!regExp.test(newValue)){
       event.target.value = newValue.slice(0, -1);
+      this.user.email = event.target.value;
+      this.verificacionEmail();
+    }else{
+      this.verificacionEmail();
     }
+  }
 
-    let email = new RegExp("[a-zA-Z0-9.#$%&'*_-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
+  verificacionEmail(){
+    let email = new RegExp("[a-zA-Z0-9.'_-]+@[a-zA-Z]+(?:\.[a-zA-Z]+)*$");
     if(!email.test(this.user.email)){
       this.alertaContra = "invalido";
       this.user.verificacion = false;

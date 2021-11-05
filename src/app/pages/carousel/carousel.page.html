@@ -5,24 +5,61 @@
 </ion-header>
 
 <ion-content style="text-align: center !important;">
-  <ion-slides pager="true">
+  <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
     <ion-slide>
       <ion-card>
-        <img src="https://i.pinimg.com/564x/d6/64/59/d66459aa75fd7a0d8f79f4a6f0e0c374.jpg" alt="">
+        <img src="assets/image/1.jpg">
        </ion-card>
       </ion-slide>
 
     <ion-slide>
       <ion-card>
-        <img src="https://i.pinimg.com/564x/7f/a0/75/7fa075dadf6c715402369967240c7f74.jpg">
+        <img src="assets/image/2.jpg">
       </ion-card>
     </ion-slide>
 
     <ion-slide>
       <ion-card>
-        <img src="https://i.pinimg.com/564x/8e/af/6d/8eaf6d583ee51f78cb1422f62f74ec37.jpg">
+        <img src="assets/image/3.jpg">
       </ion-card>
     </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="assets/image/4.jpg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="assets/image/5.jpg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="assets/image/6.jpg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+         <img src="assets/image/7.jpg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+         <img src="assets/image/8.jpg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+         <img src="assets/image/10.png">
+      </ion-card>
+    </ion-slide>
+
   </ion-slides>
   
   <ion-button expand="block"><ion-icon slot="icon-only" name="qr-code-outline"></ion-icon></ion-button>

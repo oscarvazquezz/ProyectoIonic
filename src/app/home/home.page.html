@@ -6,7 +6,7 @@
       <ion-row>
        <ion-col>
         <ion-avatar>
-          <img src="https://i.pinimg.com/564x/d6/64/59/d66459aa75fd7a0d8f79f4a6f0e0c374.jpg" alt="">
+          <img src="assets/image/sd.png" alt="">
         </ion-avatar><br>
          <mat-form-field class="example-full-width" >
           <mat-label>Usuario</mat-label>
@@ -36,7 +36,7 @@
         <br><br>
         <ion-button (click)="onSubmit(formUser)" 
         [disabled]="user.contrasena.length<8  || user.usuario.length<8 || user.verificacionUsuario==false || user.verificacionContra==false">
-          Loguarse
+          Iniciar
         </ion-button> 
         <br>
         <ion-button routerLink="/registro" >Registro</ion-button>
@@ -47,10 +47,9 @@
              ¿Has olvidado tu contraseña?   
           </ion-label>
           <ion-label><br>
-            No hay problema <a href="/recuperarCuenta">haz click aqui</a><br>
-            para recuperarla
+            <a href="/recuperarCuenta">haz click aqui</a><br>
           </ion-label>
-        </ion-text>
+        </ion-text><br>
   
        </ion-col>
       </ion-row>   

@@ -28,6 +28,9 @@ ion-card{
 }
 
 ion-searchbar{
-    margin: 10px auto 0px;
+    margin: 10px auto 0;
+    margin-left: 10px;
     width:95%;
+    --background:white;
+    color: black;
 }
